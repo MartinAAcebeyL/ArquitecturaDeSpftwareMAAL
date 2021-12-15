@@ -55,8 +55,14 @@ public class viajeProxy implements IViaje {
     public void listarPasajero(Viaje _viaje) {
         try {
            con = conectar.getConexion();
-            PreparedStatement ps = con.prepareStatement("INSERT INTO viajes(accion) value('Listar')");
-            ps.executeUpdate();
+           PreparedStatement ps = con.prepareStatement("SELECT * FROM viajes");
+            ResultSet resultado = ps.executeQuery();
+            while (resultado.next()) {
+                System.out.println("Fecha: " + resultado.getString(1));
+                System.out.println("hora: " + resultado.getString(2));
+                System.out.println("destino: " + resultado.getString(3));
+                
+            }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }

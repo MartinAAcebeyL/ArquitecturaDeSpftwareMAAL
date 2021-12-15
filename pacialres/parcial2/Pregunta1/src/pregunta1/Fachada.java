@@ -13,7 +13,7 @@ public class Fachada {
     private Conectar conectar = new Conectar();
     private Connection con = null;
 
-    private Viaje viaje = new Viaje("12-12-12", "12:12", "Peru");
+    private Viaje viaje = new Viaje("1-1-12", "2:2", "lejos");
     private IViaje viajeProxy = new viajeProxy(new Viaje1());
 
     public void agregar(String nombre, String ci, String sexo) {
