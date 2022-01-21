@@ -38,7 +38,7 @@ public class viajeProxy implements IViaje {
     public Viaje removePasajero(Viaje _viaje, String ci) {
         try {
             con = conectar.getConexion();
-            PreparedStatement ps = con.prepareStatement("INSERT INTO viajes(accion) value('Remover')");
+            PreparedStatement ps = con.prepareStatement("delete from viajes where id="+ci);
             ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
