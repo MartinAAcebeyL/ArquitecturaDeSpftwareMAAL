@@ -106,21 +106,12 @@ public class Fachada {
             System.out.println("Productors Simples:");
             consultarIndividual();
             consultarCombo();
-            System.out.println("Producto simple a comprar [0: ninguno]:");
-            int ind = input.nextInt();
-            System.out.println("Producto combo a comprar [0: ninguno]:");
-            int com = input.nextInt();
-            venta = new Venta(4, "Venta" + String.valueOf(i));
-            if(ind != 0){
-                venta.addProducto(individuales.get(ind-1));
-            }
-            if(com != 0){
-                venta.addProducto(combos.get(com-1));
-            }
             System.out.println("Quiere seguir comprando: [N/S]");
             char sal = input.next().charAt(0);
             if (sal == 'S') {
                 salir = false;
+            }else{
+                break;
             }
         } while (salir);
         
