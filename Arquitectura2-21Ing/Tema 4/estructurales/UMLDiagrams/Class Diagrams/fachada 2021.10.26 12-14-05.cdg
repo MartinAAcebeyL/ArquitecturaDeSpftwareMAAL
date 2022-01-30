@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="fachada">
+  <ClassDiagramComponents>
+    <Class name="AtractivosAPI" package="fachada" visibility="public" xPosition="95.0" yPosition="268.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="buscarAtractivos" returnType="void" visibility="public">
+          <Argument type="String" name="fechaDel"/>
+          <Argument type="String" name="fechaAl"/>
+          <Argument type="String" name="destino"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AvionAPI" package="fachada" visibility="public" xPosition="586.0" yPosition="268.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="buscarVuelos" returnType="void" visibility="public">
+          <Argument type="String" name="fechaIda"/>
+          <Argument type="String" name="fechaVuelta"/>
+          <Argument type="String" name="origen"/>
+          <Argument type="String" name="destino"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Fachada" package="fachada" visibility="public" xPosition="638.0" yPosition="699.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="HotelAPI" package="fachada" visibility="public" xPosition="1158.0" yPosition="268.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="buscarHoteles" returnType="void" visibility="public">
+          <Argument type="String" name="fechaEntrada"/>
+          <Argument type="String" name="fechaSalida"/>
+          <Argument type="String" name="origen"/>
+          <Argument type="String" name="destino"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ObtenerFacade" package="fachada" visibility="public" xPosition="659.0" yPosition="423.0">
+      <Fields>
+        <Field name="avionAPI" type="AvionAPI" visibility="private"/>
+        <Field name="hotelAPI" type="HotelAPI" visibility="private"/>
+        <Field name="atractivosAPI" type="AtractivosAPI" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="buscar" returnType="void" visibility="public">
+          <Argument type="String" name="fechaIda"/>
+          <Argument type="String" name="fechaVuelta"/>
+          <Argument type="String" name="origen"/>
+          <Argument type="String" name="destino"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="atractivosAPI" source="fachada.ObtenerFacade" target="fachada.AtractivosAPI" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="hotelAPI" source="fachada.ObtenerFacade" target="fachada.HotelAPI" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="avionAPI" source="fachada.ObtenerFacade" target="fachada.AvionAPI" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

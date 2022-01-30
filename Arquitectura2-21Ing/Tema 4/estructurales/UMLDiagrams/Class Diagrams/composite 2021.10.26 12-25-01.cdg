@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="composite">
+  <ClassDiagramComponents>
+    <Class name="Composite" package="composite" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ProductoAbstracto" package="composite" visibility="public" isAbstract="true" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="protected"/>
+        <Field name="marca" type="String" visibility="protected"/>
+        <Field name="precio" type="double" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="marca"/>
+          <Argument type="double" name="precio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getMarca" returnType="String" visibility="public"/>
+        <Method name="setMarca" returnType="void" visibility="public">
+          <Argument type="String" name="marca"/>
+        </Method>
+        <Method name="getPrecio" returnType="double" visibility="public" isAbstract="true"/>
+        <Method name="setPrecio" returnType="void" visibility="public">
+          <Argument type="double" name="precio"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ProductoCompuesto" package="composite" visibility="public" xPosition="122.0" yPosition="396.0">
+      <Fields>
+        <Field name="productos" type="List&lt;ProductoAbstracto&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="marca"/>
+          <Argument type="double" name="precio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPrecio" returnType="double" visibility="public"/>
+        <Method name="setPrecio" returnType="void" visibility="public">
+          <Argument type="double" name="price"/>
+        </Method>
+        <Method name="addProducto" returnType="void" visibility="public">
+          <Argument type="ProductoAbstracto" name="producto"/>
+        </Method>
+        <Method name="removeProduct" returnType="boolean" visibility="public">
+          <Argument type="ProductoAbstracto" name="producto"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ProductoSimple" package="composite" visibility="public" xPosition="737.0" yPosition="434.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="marca"/>
+          <Argument type="double" name="precio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getMarca" returnType="String" visibility="public"/>
+        <Method name="setMarca" returnType="void" visibility="public">
+          <Argument type="String" name="marca"/>
+        </Method>
+        <Method name="getPrecio" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="composite.ProductoSimple" target="composite.ProductoAbstracto"/>
+    <UseRelation source="composite.ProductoCompuesto" target="composite.ProductoAbstracto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="productos" source="composite.ProductoCompuesto" target="composite.ProductoAbstracto" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;ProductoAbstracto&gt;"/>
+    <IsRelation name="is" source="composite.ProductoCompuesto" target="composite.ProductoAbstracto"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -110,8 +110,6 @@ public class Fachada {
             char sal = input.next().charAt(0);
             if (sal == 'S') {
                 salir = false;
-            }else{
-                break;
             }
         } while (salir);
         

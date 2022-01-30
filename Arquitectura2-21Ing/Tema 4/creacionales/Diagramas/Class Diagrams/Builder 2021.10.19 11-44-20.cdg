@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Builder">
+  <ClassDiagramComponents>
+    <Class name="Builder" package="builder" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ClubSandwichBuilder" package="builder" visibility="public" xPosition="974.0" yPosition="138.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="prepararPan" returnType="void" visibility="public"/>
+        <Method name="aplicarCarneQueso" returnType="void" visibility="public"/>
+        <Method name="aplicarVegetales" returnType="void" visibility="public"/>
+        <Method name="addCondimentos" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MiSandwichBuilder" package="builder" visibility="public" xPosition="910.0" yPosition="461.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="prepararPan" returnType="void" visibility="public"/>
+        <Method name="aplicarCarneQueso" returnType="void" visibility="public"/>
+        <Method name="aplicarVegetales" returnType="void" visibility="public"/>
+        <Method name="addCondimentos" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Sandwich" package="builder" visibility="public" xPosition="394.0" yPosition="297.0">
+      <Fields>
+        <Field name="tipopan" type="TipoPan" visibility="public"/>
+        <Field name="estostado" type="boolean" visibility="public"/>
+        <Field name="tipoqueso" type="TipoQueso" visibility="public"/>
+        <Field name="tipocarne" type="TipoCarne" visibility="public"/>
+        <Field name="tienemostaza" type="boolean" visibility="public"/>
+        <Field name="tienemayonesa" type="boolean" visibility="public"/>
+        <Field name="vegetales" type="List&lt;String&gt;" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="Mostrar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SandwichBuilder" package="builder" visibility="public" isAbstract="true" xPosition="735.0" yPosition="120.0">
+      <Fields>
+        <Field name="sandwich" type="Sandwich" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getSandwich" returnType="Sandwich" visibility="public"/>
+        <Method name="createSandwich" returnType="void" visibility="public"/>
+        <Method name="prepararPan" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="aplicarCarneQueso" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="aplicarVegetales" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="addCondimentos" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="SandwichMaker" package="builder" visibility="public" xPosition="20.0" yPosition="194.0">
+      <Fields>
+        <Field name="builder" type="SandwichBuilder" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="SandwichBuilder" name="builder"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="BuildSandwich" returnType="void" visibility="public"/>
+        <Method name="getSandwhich" returnType="Sandwich" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SuperSandwichBuilder" package="builder" visibility="public" xPosition="679.0" yPosition="471.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="prepararPan" returnType="void" visibility="public"/>
+        <Method name="aplicarCarneQueso" returnType="void" visibility="public"/>
+        <Method name="aplicarVegetales" returnType="void" visibility="public"/>
+        <Method name="addCondimentos" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Enum name="TipoPan" package="builder" visibility="public" xPosition="162.0" yPosition="401.0">
+      <Literals>
+        <Literal name="Blanco"/>
+        <Literal name="Integral"/>
+      </Literals>
+    </Enum>
+    <Enum name="TipoCarne" package="builder" visibility="public" xPosition="137.0" yPosition="532.0">
+      <Literals>
+        <Literal name="Pavo"/>
+        <Literal name="Jamon"/>
+        <Literal name="Pollo"/>
+        <Literal name="Salame"/>
+      </Literals>
+    </Enum>
+    <Enum name="TipoQueso" package="builder" visibility="public" xPosition="328.0" yPosition="664.0">
+      <Literals>
+        <Literal name="Americano"/>
+        <Literal name="Swiss"/>
+        <Literal name="Cheddar"/>
+        <Literal name="Provolone"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="tipocarne" source="builder.Sandwich" target="builder.TipoCarne" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="builder.SandwichMaker" target="builder.Sandwich" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="builder" source="builder.SandwichMaker" target="builder.SandwichBuilder" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="tipoqueso" source="builder.Sandwich" target="builder.TipoQueso" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="sandwich" source="builder.SandwichBuilder" target="builder.Sandwich" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="builder.SandwichBuilder" target="builder.Sandwich" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="builder.MiSandwichBuilder" target="builder.SandwichBuilder"/>
+    <IsRelation name="is" source="builder.SuperSandwichBuilder" target="builder.SandwichBuilder"/>
+    <HasRelation name="tipopan" source="builder.Sandwich" target="builder.TipoPan" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="builder.ClubSandwichBuilder" target="builder.SandwichBuilder"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

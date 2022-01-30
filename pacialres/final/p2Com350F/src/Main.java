@@ -40,25 +40,8 @@ public class Main {
                     double precio = input.nextDouble();
                     fa.agregarIndividual(opcion, precio);
                     break;
-                case 2:
-//                    System.out.println("Nombre del Combo:");
-//                    String nombre = input.next();
-//                    System.out.println("Elija la Pipocas para el Combo:");
-//                    fa.mostrarPipocas();
-//                    System.out.println("0: ninguno");
-//                    int opcionPipo = input.nextInt();
-//                    System.out.println("Inserte Cantidad:");
-//                    int cantPipo = input.nextInt();
-//                    System.out.println("Elija la Soda para el Combo:");
-//                    fa.mostrarSoda();
-//                    System.out.println("0: ninguno");
-//                    int opcionSoda = input.nextInt();
-//                    System.out.println("Inserte Cantidad:");
-//                    int cantSoda = input.nextInt();
-//                    System.out.println("Inserte Descuento:");
-//                    double decuento = input.nextDouble();
-//                    fa.agregarCombo(nombre, opcionPipo, cantPipo, opcionSoda, cantSoda, decuento);
-//                    break;
+                case 2:                    
+                    break;
                 case 3:
                     fa.consultarIndividual();
                     break;

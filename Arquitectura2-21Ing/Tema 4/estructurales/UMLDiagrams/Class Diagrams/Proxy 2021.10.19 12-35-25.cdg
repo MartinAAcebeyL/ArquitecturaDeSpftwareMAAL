@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Proxy">
+  <ClassDiagramComponents>
+    <Class name="Cuenta" package="proxy" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="idCuenta" type="int" visibility="private"/>
+        <Field name="usuario" type="String" visibility="private"/>
+        <Field name="saldoInicial" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="idCuenta"/>
+          <Argument type="String" name="usuario"/>
+          <Argument type="double" name="saldoInicial"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdCuenta" returnType="int" visibility="public"/>
+        <Method name="setIdCuenta" returnType="void" visibility="public">
+          <Argument type="int" name="idCuenta"/>
+        </Method>
+        <Method name="getUsuario" returnType="String" visibility="public"/>
+        <Method name="setUsuario" returnType="void" visibility="public">
+          <Argument type="String" name="usuario"/>
+        </Method>
+        <Method name="getSaldoInicial" returnType="double" visibility="public"/>
+        <Method name="setSaldoInicial" returnType="void" visibility="public">
+          <Argument type="double" name="saldoInicial"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CuentaBancoA" package="proxy" visibility="public" xPosition="147.0" yPosition="448.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="retirarDinero" returnType="Cuenta" visibility="public">
+          <Argument type="Cuenta" name="cuenta"/>
+          <Argument type="double" name="monto"/>
+        </Method>
+        <Method name="depositarDinero" returnType="Cuenta" visibility="public">
+          <Argument type="Cuenta" name="cuenta"/>
+          <Argument type="double" name="monto"/>
+        </Method>
+        <Method name="mostrarSaldo" returnType="void" visibility="public">
+          <Argument type="Cuenta" name="cuenta"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CuentaBancoB" package="proxy" visibility="public" xPosition="596.0" yPosition="448.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="retirarDinero" returnType="Cuenta" visibility="public">
+          <Argument type="Cuenta" name="cuenta"/>
+          <Argument type="double" name="monto"/>
+        </Method>
+        <Method name="depositarDinero" returnType="Cuenta" visibility="public">
+          <Argument type="Cuenta" name="cuenta"/>
+          <Argument type="double" name="monto"/>
+        </Method>
+        <Method name="mostrarSaldo" returnType="void" visibility="public">
+          <Argument type="Cuenta" name="cuenta"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CuentaProxy" package="proxy" visibility="public" xPosition="932.0" yPosition="192.0">
+      <Fields>
+        <Field name="cuentaReal" type="ICuenta" visibility="private"/>
+        <Field name="LOGGER" type="Logger" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="ICuenta" name="cuentaReal"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="retirarDinero" returnType="Cuenta" visibility="public">
+          <Argument type="Cuenta" name="cuenta"/>
+          <Argument type="double" name="monto"/>
+        </Method>
+        <Method name="depositarDinero" returnType="Cuenta" visibility="public">
+          <Argument type="Cuenta" name="cuenta"/>
+          <Argument type="double" name="monto"/>
+        </Method>
+        <Method name="mostrarSaldo" returnType="void" visibility="public">
+          <Argument type="Cuenta" name="cuenta"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Proxy" package="proxy" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="ICuenta" package="proxy" visibility="public" xPosition="483.0" yPosition="51.0">
+      <Methods>
+        <Method name="retirarDinero" returnType="Cuenta" visibility="package">
+          <Argument type="Cuenta" name="cuenta"/>
+          <Argument type="double" name="monto"/>
+        </Method>
+        <Method name="depositarDinero" returnType="Cuenta" visibility="package">
+          <Argument type="Cuenta" name="cuenta"/>
+          <Argument type="double" name="monto"/>
+        </Method>
+        <Method name="mostrarSaldo" returnType="void" visibility="package">
+          <Argument type="Cuenta" name="cuenta"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="proxy.CuentaBancoA" target="proxy.Cuenta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="proxy.CuentaProxy" target="proxy.Cuenta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="proxy.CuentaBancoA" target="proxy.ICuenta"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="proxy.CuentaBancoB" target="proxy.ICuenta"/>
+    <UseRelation source="proxy.ICuenta" target="proxy.Cuenta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="proxy.CuentaProxy" target="proxy.ICuenta"/>
+    <UseRelation source="proxy.CuentaBancoB" target="proxy.Cuenta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cuentaReal" source="proxy.CuentaProxy" target="proxy.ICuenta" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
